@@ -13,6 +13,7 @@ export class HomePage {
   public allMusic = []
 
   constructor(
+
     private socialSharing: SocialSharing,
     public actionSheetController: ActionSheetController,
     public loadingController: LoadingController,
@@ -28,6 +29,7 @@ export class HomePage {
     this.musicProvider.getMusic().subscribe((data) => {
       allMusicLoadingController.dismiss()
       this.allMusic = data
+      console.log()
     })
   }
 
@@ -65,13 +67,14 @@ export class HomePage {
           }
         },
         {
-          text: 'Share',
+
+          text: 'Share', 
           icon: 'share',
           handler: ()=> {
             this.socialSharing.share(music.name, '', music.image, music.music_url).then(() => {
               // Success!
             }).catch(() => {
-              // Error!
+             
             });
           }
         },
