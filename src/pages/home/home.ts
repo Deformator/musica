@@ -4,6 +4,8 @@ import { NavController, LoadingController, ActionSheetController } from 'ionic-a
 import { MusicProvider } from '../../providers/music/music'
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import { MusicPlayerPage } from '../../pages/music-player/music-player'
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -30,6 +32,12 @@ export class HomePage {
       allMusicLoadingController.dismiss()
       this.allMusic = data
       console.log()
+    })
+  }
+
+  goToMusicPlayer(music){
+    this.navCtrl.push(MusicPlayerPage, {
+      music: music
     })
   }
 
